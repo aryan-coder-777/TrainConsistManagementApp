@@ -3,6 +3,7 @@ import java.util.List;
 import java.util.HashSet;
 import java.util.Set;
 import java.util.LinkedList;
+import java.util.LinkedHashSet;
 
 public class TrainConsistApp {
 
@@ -47,8 +48,6 @@ public class TrainConsistApp {
         System.out.println("\nFinal Train Passenger Consist:");
         System.out.println(passengerBogies);
 
-        System.out.println("\nUC2 operations completed successfully...");
-
 
         // ================= UC3 =================
         System.out.println("\n==========================================");
@@ -65,8 +64,6 @@ public class TrainConsistApp {
 
         System.out.println("\nBogie IDs in the train:");
         System.out.println(bogieIds);
-
-        System.out.println("\nNote: Duplicate IDs are automatically removed.");
 
 
         // ================= UC4 =================
@@ -87,15 +84,32 @@ public class TrainConsistApp {
 
         trainOrder.add(2, "Pantry Car");
 
-        System.out.println("\nAfter Inserting 'Pantry Car' at position 2:");
+        System.out.println("\nAfter Inserting Pantry Car:");
         System.out.println(trainOrder);
 
         trainOrder.removeFirst();
         trainOrder.removeLast();
 
-        System.out.println("\nAfter Removing First and Last Bogie:");
+        System.out.println("\nAfter Removing First & Last:");
         System.out.println(trainOrder);
 
-        System.out.println("\nUC4 ordered consist operations completed.");
+
+        // ================= UC5 =================
+        System.out.println("\n==========================================");
+        System.out.println(" UC5 - Preserve Insertion Order ");
+        System.out.println("==========================================");
+
+        LinkedHashSet<String> formation = new LinkedHashSet<>();
+
+        formation.add("Engine");
+        formation.add("Sleeper");
+        formation.add("Cargo");
+        formation.add("Guard");
+        formation.add("Sleeper"); // duplicate
+
+        System.out.println("\nFinal Train Formation:");
+        System.out.println(formation);
+
+        System.out.println("\nUC5 completed...");
     }
 }
